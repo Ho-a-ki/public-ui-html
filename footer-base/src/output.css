@@ -434,6 +434,18 @@ li img {
   margin-right: 6px;
 }
 
+#footer-scafold {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 506px;
+}
+
+footer {
+  height: 506px;
+  position: relative;
+  transform: translateY(-100%);
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

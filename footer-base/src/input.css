@@ -8,6 +8,7 @@
         margin-top: 6px;
         list-style: none;
     }
+
     img {
         display: inline;
     }
@@ -15,4 +16,16 @@
     li img {
         margin-right: 6px;
     }
-  }
+
+    #footer-scafold {
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 506px;
+    }
+
+    footer {
+        height: 506px;
+        position: relative;
+        transform: translateY(-100%);
+    }
+}
