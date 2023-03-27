@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        section#p-brand {
+            background-image: url('https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F53415b1e-fc55-47fb-96d8-7cad790a5958%2Fabout-us-bg.jpg&blockId=5c37654b-e942-43c0-87a2-704cbbc7e13c');
+            background-size: cover;
+        }
+
+        div#p-brand {
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 4px 4px 15px #000000AF;
+        }
+
+        div#p-brand small {
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h1#p-brand-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+
+        @media (width >=768px) {
+            h1#p-brand-title {
+                font-size: 2.5rem;
+            }
+
+            br.p-brand-br {
+                display: none;
+            }
+
+        }
+    </style>
+    <section id="p-brand">
+        <div id="p-brand">
+            <small>JUST - Original From 1930</small>
+            <h1 id="p-brand-title">스위스 자연에서
+                <br class="p-brand-br">
+                자라난 허브
+            </h1>
+        </div>
+    </section>
+</body>
+
+</html>

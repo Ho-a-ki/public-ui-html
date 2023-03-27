@@ -1,0 +1,53 @@
+:root {
+    --btn-size: 60px
+}
+
+button.swiper-pagination-bullet {
+    transition: all 0.3s ease-in-out;
+    width: var(--btn-size);
+    height: var(--btn-size);
+    border-radius: 50%;
+    border: 4px dotted #be9e55;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 5px;
+    position: absolute;
+    z-index: 1000;
+    background-color: transparent;
+    opacity: 100%;
+    color: transparent;
+    font-size: 20px;
+}
+
+
+button.swiper-pagination-bullet-active {
+    background-color: #be9e55;
+    color: #fff;
+}
+
+button:nth-child(1) {
+    top: 5%;
+    right: 20%;
+}
+button:nth-child(2) {
+    top: 0%;
+    right: 50%;
+}
+button:nth-child(3) {
+    top: 5%;
+    left: 20%;
+}
+button:nth-child(4) {
+    top: 25%;
+    left: 2%;
+}
+button:nth-child(5) {
+    top: 40%;
+    left: 7%;
+}
+
+button:nth-child(6) {
+    top: 45%;
+    right: 20%;
+}
+
