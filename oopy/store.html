@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        section#p-brand {
+            background-image: url('https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0442f3c9-595f-4194-b7bf-7a83b686166c%2FIMG_4095.jpg&blockId=c93dea5e-c732-4b84-a6bf-29e6b5639dfe');
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div#p-brand {
+            color: white;
+            text-shadow: 4px 4px 15px #000000AF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        div#p-brand small {
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        h1#p-brand-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 2.2rem;
+        }
+
+
+        @media (width >=768px) {
+            h1#p-brand-title {
+                font-size: 2.5rem;
+            }
+
+            br.p-brand-br {
+                display: none;
+            }
+        }
+
+    </style>
+    <section id="p-brand">
+        <div id="p-brand">
+            <small>가까운 매장을 만나보세요</small>
+            <h1 id="p-brand-title">오프라인
+                <br class="p-brand-br">
+                스토어
+            </h1>
+        </div>
+    </section>
+</body>
+
+</html>
