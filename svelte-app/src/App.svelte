@@ -1,7 +1,8 @@
 <script>
   import QuickMenu from "./lib/QuickMenu.svelte";
+  import Header from "./lib/Header.svelte";
 </script>
 
 <main>
-  <QuickMenu />
+  <Header />
 </main>
