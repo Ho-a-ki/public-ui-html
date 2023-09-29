@@ -18,7 +18,7 @@ with open('tailwind.config.js', 'w') as f:
 with open('src/input.css', 'w') as f:
     f.write('''
 @tailwind base;
-@tailwind components;
+@tailwind components; 
 @tailwind utilities;
 ''')
 

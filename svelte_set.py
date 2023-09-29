@@ -63,3 +63,24 @@ with open('svelte-app/src/App.svelte', 'w') as f:
 </style>
 
 ''')
+
+
+with open('svelte-app/vite.config.js', 'w') as f:
+    f.write('''
+import { defineConfig } from 'vite'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [svelte()],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
+  }
+})
+''')
