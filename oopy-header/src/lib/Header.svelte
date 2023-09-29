@@ -40,7 +40,7 @@
   <header>
     {#if headerView}
       <section
-        class="fixed bg-white w-screen flex flex-row justify-between md:hidden"
+        class="fixed w-full bg-white flex flex-row justify-between md:hidden"
         transition:fly={{ y: -100, duration: 300 }}
       >
         <div class="w-20 p-2 m-2">
@@ -144,8 +144,14 @@
   @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
 
   main {
+    z-index: 1000;
     font-family: "Pretendard";
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: white;
   }
+
   nav ul a li {
     position: relative;
     transition: all 0.4s;
