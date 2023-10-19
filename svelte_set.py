@@ -1,11 +1,11 @@
 import os
 
-os.system("npm create vite@latest svelte-app -- --template svelte")
-os.system("cd svelte-app && npm install")
-os.system("cd svelte-app && npm install -D tailwindcss postcss autoprefixer")
-os.system("cd svelte-app && npx tailwindcss init tailwind.config.cjs -p")
+os.system("npm create vite@latest svelte-scafold -- --template svelte")
+os.system("cd svelte-scafold && npm install")
+os.system("cd svelte-scafold && npm install -D tailwindcss postcss autoprefixer")
+os.system("cd svelte-scafold && npx tailwindcss init tailwind.config.cjs -p")
 
-with open('svelte-app/tailwind.config.cjs', 'w') as f:
+with open('svelte-scafold/tailwind.config.cjs', 'w') as f:
     f.write('''
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,14 +17,14 @@ plugins: [],
 }          
 ''')
 
-with open('svelte-app/src/app.css', 'w') as f:
+with open('svelte-scafold/src/app.css', 'w') as f:
     f.write('''
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ''')
     
-with open('svelte-app/src/lib/Preview.svelte', 'w') as f:
+with open('svelte-scafold/src/lib/Preview.svelte', 'w') as f:
     f.write('''
 <div class="bg-gray-50">
     <div
@@ -46,7 +46,7 @@ with open('svelte-app/src/lib/Preview.svelte', 'w') as f:
 ''')
 
 
-with open('svelte-app/src/App.svelte', 'w') as f:
+with open('svelte-scafold/src/App.svelte', 'w') as f:
     f.write('''
 <script>
   import svelteLogo from "./assets/svelte.svg";
@@ -65,7 +65,7 @@ with open('svelte-app/src/App.svelte', 'w') as f:
 ''')
 
 
-with open('svelte-app/vite.config.js', 'w') as f:
+with open('svelte-scafold/vite.config.js', 'w') as f:
     f.write('''
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
