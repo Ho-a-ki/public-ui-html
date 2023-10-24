@@ -8,10 +8,12 @@
 </head>
 
 <body>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
         .button {
             position: absolute;
             z-index: 100;
@@ -63,36 +65,121 @@
         }
 
         .swiper-slide {
-            background: rgb(175, 174, 174);
+            background: #EEF7FF;
         }
 
-        #slider-container {
-            padding: 15px;
+
+        .course {
+            display: flex;
+            flex-direction: column;
+            margin: 0px 24px;
+            padding: 40px 0;
+        }
+
+        .course>h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+
+        .course>p {
+            color: #3A2929;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course>li {
+            color: #686868;
+            font-family: Poppins;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .course>li::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 40%;
+            left: 10px;
+            width: 4px;
+            height: 4px;
+            background-color: #8f8f8f;
+            border-radius: 50%;
+        }
+
+
+        .course>span {
+            color: #3A2929;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+
+        #course-header {
+            display: flex;
+            font-size: 36px;
+            padding: 20px;
+            align-items: center;
+            font-family: 'Pretendard';
+            color: #000;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
         }
     </style>
     <div id='slider-container'>
+        <h3 id="course-header">코스 안내</h3>
         <div class="spaSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="https://picsum.photos/300/200" alt="Lorem Ipsum Image">
-                    <section class="px-8 py-4 flex flex-col gap-4">
-                        <h1 class="text-3xl">A코스</h1>
-                        <p>설명 어쩌구 저쩌구 120분 코스 어쩌구 저쩌구 입니다. 설명 어쩌구 저쩌구 120분 코스 어쩌구 저쩌구 입니다.</p>
-                        <span>12,000원</span>
-                        <span>120분60분(SPA) + 60분</span>
+                    <section class="course">
+                        <h3>Only For Spa</h3>
+                        <p>유스트의 건강을 위한 모든 정수가 담겨 있는 바스에센스와 솔트를 이용하여,
+                            남녀노소 모두에게 이로운 건강을 제공하는 유스트의 스파 프로그램 입니다.</p>
+                        <li>5 Bath Essence</li>
+                        <li>2 Salt</li>
+                        <span>60 Mins | 99,000 KRW</span>
                     </section>
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://picsum.photos/300/200" alt="Lorem Ipsum Image">
-                    <section class="px-8 py-4 flex flex-col gap-4">
-                        <h1 class="text-3xl">A코스</h1>
-                        <p>설명 어쩌구 저쩌구 120분 코스 어쩌구 저쩌구 입니다. 설명 어쩌구 저쩌구 120분 코스 어쩌구 저쩌구 입니다.</p>
-                        <span>12,000원</span>
-                        <span>120분60분(SPA) + 60분</span>
+                    <section class="course">
+                        <h3>A course</h3>
+                        <p>유스트의 건강을 위한 모든 정수가 담겨 있는 바스에센스와 솔트를 이용하여,
+                            남녀노소 모두에게 이로운 건강을 제공하는 유스트의 스파 프로그램 입니다.</p>
+                        <li>Full Spa 60 min</li>
+                        <li>Body Relax Care 60 min</li>
+                        <span>120 Mins | 198,000 KRW</span>
                     </section>
                 </div>
-
-
+                <div class="swiper-slide">
+                    <section class="course">
+                        <h3>B course</h3>
+                        <p>유스트의 건강을 위한 모든 정수가 담겨 있는 바스에센스와 솔트를 이용하여,
+                            남녀노소 모두에게 이로운 건강을 제공하는 유스트의 스파 프로그램 입니다.</p>
+                        <li>Full Spa 60 min</li>
+                        <li>Body Deep Relax Care 90 min</li>
+                        <span>150 Mins | 330,000 KRW</span>
+                    </section>
+                </div>
+                <div class="swiper-slide">
+                    <section class="course">
+                        <h3>C course</h3>
+                        <p>유스트의 건강을 위한 모든 정수가 담겨 있는 바스에센스와 솔트를 이용하여,
+                            남녀노소 모두에게 이로운 건강을 제공하는 유스트의 스파 프로그램 입니다.</p>
+                        <li>Full Spa 60 min</li>
+                        <li>Body Relax Care 120 min</li>
+                        <span>180 Mins | 550,000 KRW</span>
+                    </section>
+                </div>
             </div>
             <div class="gh-swiper-pagination"></div>
             <div class="button swiper-prev">
