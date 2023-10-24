@@ -185,8 +185,8 @@
     background-color: #ffffff;
   }
 
-  @media (width >= 768px ) {
-    ul > a:nth-child(1),
+@media (width >= 768px ) {
+  ul > a:nth-child(1),
   ul > a:nth-child(2)
    {
     border-right: 1px solid #ccc;
