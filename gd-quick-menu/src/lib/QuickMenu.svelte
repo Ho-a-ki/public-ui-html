@@ -1,6 +1,6 @@
 <script>
   import { fade } from "svelte/transition";
-  import up from "/up.svg";
+  // import up from "/up.svg";
   let open = false;
   function goTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -63,28 +63,30 @@
         <path d="M14 6H8V0H6V6H0V8H6V14H8V8H14V6Z" fill="black" />
       </svg>
     </button>
-    <button
-      class="btn"
-      on:click={goTop}
-    >
-      <img src={up} alt="" />
+    <button class="btn" on:click={goTop}>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M7 14L12 9L17 14H7Z" fill="black" />
+      </svg>
     </button>
   </div>
 </main>
 
 <style>
-  main {
-    z-index: 9999999;
-  }
-
   .open {
     transform: rotate(45deg);
   }
 
   #quick-menu {
+    z-index: 9999999;
+    position: fixed;
     display: flex;
     flex-direction: column;
-    position: fixed;
     bottom: 40px;
     right: 5%;
     gap: 8px;
