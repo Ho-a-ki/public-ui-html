@@ -42,3 +42,7 @@ module.exports = {
 }
 ```
 
+
+### 현재 포팅중 => Footer-ai
+
+v0 + claude + cursor 사용해서 만듦
