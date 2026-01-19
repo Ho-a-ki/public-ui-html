@@ -4,12 +4,207 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://justkorea.co.kr/data/skin/front/just_responsive_1910/css/reset.css?ts=1695649031">
-    <title>Vite + Svelte</title>
+    <!-- <link rel="stylesheet" href="https://justkorea.co.kr/data/skin/front/just_responsive_1910/css/reset.css?ts=1695649031"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>JUST KOREA (Static)</title>
+    <style>
+      body, main, header {
+        font-family: "Pretendard";
+      }
+      li.hover-event {
+        position: relative;
+        transition: all 0.4s;
+      }
+      li.hover-event:hover::before {
+        content: "";
+        bottom: -30px;
+        left: 5px;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #2553a0;
+      }
+      li.hover-event::before {
+        transition: all 0.2s;
+        content: "";
+        bottom: -35px;
+        left: 5px;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+      }
+      #mobile-menu {
+        z-index: 1000001;
+      }
+      #site-header {
+        z-index: 1000;
+      }
+      .bg-navy { background-color: #0b357a; }
+      .text-gold { color: #D2AC53; }
+      /* 로고 SVG가 크기 미지정일 때 보이지 않는 문제 방지 */
+      #mobile-bar > div:first-child a svg { width: 100%; height: auto; display: block; }
+      #pc-navbar .w-32 a svg { width: 100%; height: auto; display: block; }
+      @media (width >= 768px) {
+        ul > a:nth-child(1),
+        ul > a:nth-child(2) {
+          border-right: 1px solid #ccc;
+        }
+        li {
+          display: flex;
+          flex: 1 1 auto;
+          align-items: center;
+          justify-content: center;
+        }
+        ul > a { flex: 1 1 auto; }
+        ul {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <nav id="pc-navbar" class="flex justify-center items-center gap-4 dark:bg-gray-900 mx-auto p-8 max-w-screen-xl dark:text-white" data-component-name="<nav />"></nav>
-    <header id="header"></header>
-    <script type="module" src="/src/main.js"></script>
+    <header id="site-header" class="top-0 absolute bg-white w-full">
+      <section
+        id="mobile-bar"
+        class="md:hidden fixed flex flex-row justify-between bg-white w-full transition-transform translate-y-0 duration-300 transform"
+      >
+        <div class="m-2 p-2 w-20">
+          <a href="/#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.98 91.12"><defs><style>.cls-1{fill:#e60012;}.cls-2{fill:#fff;}.cls-3,.cls-4{fill:#004ea2;}.cls-4{fill-rule:evenodd;}</style></defs><title>자산 1</title><g id="레이어_2" data-name="레이어 2"><g id="레이어_1-2" data-name="레이어 1"><polygon class="cls-1" points="123.12 22.64 108.43 22.64 111.28 7.95 125.98 7.95 123.12 22.64 123.12 22.64"/><polygon class="cls-2" points="122.67 13.64 119.47 13.64 120.17 10.04 116.78 10.04 116.08 13.64 112.67 13.64 112.01 17.05 115.41 17.05 114.67 20.84 118.07 20.84 118.81 17.05 122 17.05 122.67 13.64 122.67 13.64"/><path class="cls-3" d="M24.28,59.78c-.16.6-.34,1.18-.53,1.76C34.07,66,47,68.7,61.07,68.7a98.25,98.25,0,0,0,32.12-5.14A125.36,125.36,0,0,1,66.35,66.7c-16,.2-30.74-2.42-42.07-6.92M1.61,36.73C1.4,19.73,30,5.6,65.58,5.15,81.52,5,96.14,7.55,107.44,12,96.24,4.65,79.62,0,61.07,0,27.34,0,0,15.38,0,34.35,0,42.6,5.17,50.17,13.79,56.09l.31-1.44c-7.77-5-12.4-11.17-12.49-17.92"/><path class="cls-3" d="M32.44,16.26H23.58l-8.71,43.3C13.94,64,10.75,70.11,5.6,70.4L6.52,73c6,0,9.88-2.08,12.47-5.67a26.63,26.63,0,0,0,4.07-9.84l9.38-41.18Z"/><path class="cls-3" d="M55.23,54.05H47.64l.7-3c-3,2-6.44,3.6-10,3.6-6.26,0-6.2-6.44-5.27-10.9l3.42-16.46L44.34,26,40.8,42.86C40.28,45.3,39.7,50,43.41,50a9.25,9.25,0,0,0,5.51-2.2l4.29-20.52L61.09,26,55.23,54.05Z"/><path class="cls-3" d="M77.83,29.13c-2.37-.06-5.39,1.44-5.39,4.17,0,3.48,10.72,4.23,10.72,11,0,7.13-7.47,10.44-13.62,10.44A22.39,22.39,0,0,1,62,53.18L61.78,50a16.35,16.35,0,0,0,7.36,1.74c2.78,0,6.55-1.57,6.55-4.81C75.75,42.23,65,42.05,65,35.79s7.13-9.56,12.69-9.56a13.84,13.84,0,0,1,6.08,1.51l.18,3.18a13.33,13.33,0,0,0-6.09-1.79"/><path class="cls-3" d="M106.81,29.24h-6.67L96.78,45.18c-.69,3.19-1,5.39,3.31,5.39a20.43,20.43,0,0,0,3.3-.29l-1.45,3.19a41.24,41.24,0,0,1-8.46,1.16c-5,0-5.62-3-4.75-7.07l3.82-18.32H89.08l.52-2.49H93l1.39-6.43L102.23,19l-1.56,7.71h6.6l-.46,2.49Z"/><path class="cls-3" d="M9.26,85.43a2.45,2.45,0,1,0,0,4.9,2.45,2.45,0,1,0,0-4.9m0-.8a3.25,3.25,0,1,1,0,6.49,3.25,3.25,0,1,1,0-6.49"/><path class="cls-3" d="M17.65,87.55c.9,0,1.11-.55,1.11-1,0-.59-.35-1-1.09-1H15.08v2Zm-3.49-2.77H18a1.56,1.56,0,0,1,1.69,1.65,1.47,1.47,0,0,1-1,1.52v0c.55.08.87.59.9,1.32.05,1.15.09,1.44.3,1.68h-1c-.15-.17-.15-.43-.19-1.18-.06-1.11-.44-1.45-1.2-1.45h-2.4V91h-.92V84.78Z"/><polygon class="cls-4" points="22.13 84.78 21.21 84.78 21.21 90.97 22.13 90.97 22.13 84.78 22.13 84.78"/><path class="cls-3" d="M27.37,87.63h2.84V91h-.66l-.16-.88a2.86,2.86,0,0,1-2.37,1A3,3,0,0,1,23.75,88,3.09,3.09,0,0,1,27,84.63c1.28,0,2.72.4,3.11,2.1h-1A1.91,1.91,0,0,0,27,85.43a2.26,2.26,0,0,0-2.37,2.47,2.21,2.21,0,0,0,2.41,2.43,2.12,2.12,0,0,0,2.31-1.9h-2v-.8Z"/><polygon class="cls-4" points="32.95 84.78 32.03 84.78 32.03 90.97 32.95 90.97 32.95 84.78 32.95 84.78"/><polygon class="cls-3" points="35.76 86.05 35.74 86.05 35.74 90.97 34.83 90.97 34.83 84.78 35.89 84.78 39.87 89.7 39.88 89.7 39.88 84.78 40.8 84.78 40.8 90.97 39.74 90.97 35.76 86.05 35.76 86.05"/><path class="cls-3" d="M45.19,85.63,44,88.37h2.34l-1.18-2.74Zm1.52,3.54h-3L42.89,91h-1l2.8-6.19h1L48.55,91h-1l-.79-1.8Z"/><polygon class="cls-3" points="49.65 84.78 50.57 84.78 50.57 90.17 54.33 90.17 54.33 90.97 49.65 90.97 49.65 84.78 49.65 84.78"/></svg>
+          </a>
+        </div>
+        <div class="flex justify-center items-center w-20">
+          <button id="mobile-menu-toggle" aria-label="모바일 메뉴 열기" class="p-2">
+            <svg
+              width="28"
+              height="18"
+              viewBox="0 0 28 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_124_14)">
+                <rect width="28" height="2" fill="#00509E" />
+                <rect y="8" width="28" height="2" fill="#00509E" />
+                <rect x="14" y="16" width="14" height="2" fill="#00509E" />
+              </g>
+              <defs>
+                <clipPath id="clip0_124_14">
+                  <rect width="28" height="18" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <nav id="pc-navbar" class="hidden md:flex justify-center items-center gap-4 mx-auto p-8 max-w-screen-xl">
+        <ul class="relative flex justify-evenly items-end w-[40%]">
+          <a href="/brand"><li class="hover-event">브랜드</li></a>
+          <a href="/philosophy"><li class="hover-event">제품 철학</li></a>
+          <a href="/store"><li class="hover-event">스토어</li></a>
+        </ul>
+        <div class="flex justify-center items-center w-32">
+          <a href="/#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.98 91.12"><defs><style>.cls-1{fill:#e60012;}.cls-2{fill:#fff;}.cls-3,.cls-4{fill:#004ea2;}.cls-4{fill-rule:evenodd;}</style></defs><title>자산 1</title><g id="레이어_2" data-name="레이어 2"><g id="레이어_1-2" data-name="레이어 1"><polygon class="cls-1" points="123.12 22.64 108.43 22.64 111.28 7.95 125.98 7.95 123.12 22.64 123.12 22.64"/><polygon class="cls-2" points="122.67 13.64 119.47 13.64 120.17 10.04 116.78 10.04 116.08 13.64 112.67 13.64 112.01 17.05 115.41 17.05 114.67 20.84 118.07 20.84 118.81 17.05 122 17.05 122.67 13.64 122.67 13.64"/><path class="cls-3" d="M24.28,59.78c-.16.6-.34,1.18-.53,1.76C34.07,66,47,68.7,61.07,68.7a98.25,98.25,0,0,0,32.12-5.14A125.36,125.36,0,0,1,66.35,66.7c-16,.2-30.74-2.42-42.07-6.92M1.61,36.73C1.4,19.73,30,5.6,65.58,5.15,81.52,5,96.14,7.55,107.44,12,96.24,4.65,79.62,0,61.07,0,27.34,0,0,15.38,0,34.35,0,42.6,5.17,50.17,13.79,56.09l.31-1.44c-7.77-5-12.4-11.17-12.49-17.92"/><path class="cls-3" d="M32.44,16.26H23.58l-8.71,43.3C13.94,64,10.75,70.11,5.6,70.4L6.52,73c6,0,9.88-2.08,12.47-5.67a26.63,26.63,0,0,0,4.07-9.84l9.38-41.18Z"/><path class="cls-3" d="M55.23,54.05H47.64l.7-3c-3,2-6.44,3.6-10,3.6-6.26,0-6.2-6.44-5.27-10.9l3.42-16.46L44.34,26,40.8,42.86C40.28,45.3,39.7,50,43.41,50a9.25,9.25,0,0,0,5.51-2.2l4.29-20.52L61.09,26,55.23,54.05Z"/><path class="cls-3" d="M77.83,29.13c-2.37-.06-5.39,1.44-5.39,4.17,0,3.48,10.72,4.23,10.72,11,0,7.13-7.47,10.44-13.62,10.44A22.39,22.39,0,0,1,62,53.18L61.78,50a16.35,16.35,0,0,0,7.36,1.74c2.78,0,6.55-1.57,6.55-4.81C75.75,42.23,65,42.05,65,35.79s7.13-9.56,12.69-9.56a13.84,13.84,0,0,1,6.08,1.51l.18,3.18a13.33,13.33,0,0,0-6.09-1.79"/><path class="cls-3" d="M106.81,29.24h-6.67L96.78,45.18c-.69,3.19-1,5.39,3.31,5.39a20.43,20.43,0,0,0,3.3-.29l-1.45,3.19a41.24,41.24,0,0,1-8.46,1.16c-5,0-5.62-3-4.75-7.07l3.82-18.32H89.08l.52-2.49H93l1.39-6.43L102.23,19l-1.56,7.71h6.6l-.46,2.49Z"/><path class="cls-3" d="M9.26,85.43a2.45,2.45,0,1,0,0,4.9,2.45,2.45,0,1,0,0-4.9m0-.8a3.25,3.25,0,1,1,0,6.49,3.25,3.25,0,1,1,0-6.49"/><path class="cls-3" d="M17.65,87.55c.9,0,1.11-.55,1.11-1,0-.59-.35-1-1.09-1H15.08v2Zm-3.49-2.77H18a1.56,1.56,0,0,1,1.69,1.65,1.47,1.47,0,0,1-1,1.52v0c.55.08.87.59.9,1.32.05,1.15.09,1.44.3,1.68h-1c-.15-.17-.15-.43-.19-1.18-.06-1.11-.44-1.45-1.2-1.45h-2.4V91h-.92V84.78Z"/><polygon class="cls-4" points="22.13 84.78 21.21 84.78 21.21 90.97 22.13 90.97 22.13 84.78 22.13 84.78"/><path class="cls-3" d="M27.37,87.63h2.84V91h-.66l-.16-.88a2.86,2.86,0,0,1-2.37,1A3,3,0,0,1,23.75,88,3.09,3.09,0,0,1,27,84.63c1.28,0,2.72.4,3.11,2.1h-1A1.91,1.91,0,0,0,27,85.43a2.26,2.26,0,0,0-2.37,2.47,2.21,2.21,0,0,0,2.41,2.43,2.12,2.12,0,0,0,2.31-1.9h-2v-.8Z"/><polygon class="cls-4" points="32.95 84.78 32.03 84.78 32.03 90.97 32.95 90.97 32.95 84.78 32.95 84.78"/><polygon class="cls-3" points="35.76 86.05 35.74 86.05 35.74 90.97 34.83 90.97 34.83 84.78 35.89 84.78 39.87 89.7 39.88 89.7 39.88 84.78 40.8 84.78 40.8 90.97 39.74 90.97 35.76 86.05 35.76 86.05"/></svg>
+          </a>
+        </div>
+        <ul class="relative flex justify-evenly items-end w-[40%]">
+          <a href="/spa"><li class="hover-event">스파</li></a>
+          <a href="https://www.justkorea.co.kr/"><li class="hover-event">제품 찾기</li></a>
+          <a href="/herb"><li class="hover-event">허브 백과사전</li></a>
+        </ul>
+      </nav>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="hidden top-0 left-0 fixed bg-navy w-full h-screen text-white"
+    >
+      <div class="flex justify-between items-center mx-10 mt-10">
+        <h1 class="text-xl"><span class="text-gold">JUST</span> KOREA</h1>
+        <button id="mobile-menu-close" aria-label="모바일 메뉴 닫기" class="p-2">
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 25 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.5 22.5L22.5 2.5M2.5 2.5L22.5 22.5L2.5 2.5Z"
+              stroke="#D2AC53"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <ul class="flex flex-col gap-2 mx-10 mt-20">
+        <a class="block py-2" href="/brand"><li class="flex font-light text-white text-lg">브랜드</li></a>
+        <a class="block py-2" href="/philosophy"><li class="flex font-light text-white text-lg">제품 철학</li></a>
+        <a class="block py-2" href="/store"><li class="flex font-light text-white text-lg">스토어</li></a>
+        
+        <a class="block py-2" href="https://justkorea.co.kr"><li class="flex font-light text-white text-lg">제품 찾기</li></a>
+        <a class="block py-2" href="/herb"><li class="flex font-light text-white text-lg">허브 백과사전</li></a>
+        <a class="block py-2" href="/spa"><li class="flex font-light text-white text-lg">스파</li></a>
+      </ul>
+    </div>
+
+    <main class="pt-20 md:pt-40 h-[2000px]">
+      <div class="mx-auto p-6 max-w-screen-xl text-gray-700">
+        <p>정적 HTML/JS/CSS로 변환된 헤더입니다.</p>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        var mobileBar = document.getElementById('mobile-bar');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var toggleBtn = document.getElementById('mobile-menu-toggle');
+        var closeBtn = document.getElementById('mobile-menu-close');
+        var lastY = window.scrollY || 0;
+
+        function onScroll() {
+          var y = window.scrollY || 0;
+          var dy = lastY - y;
+          if (window.innerWidth < 768) {
+            if (dy > 0) {
+              mobileBar.classList.remove('-translate-y-full');
+              mobileBar.classList.add('translate-y-0');
+            } else {
+              mobileBar.classList.remove('translate-y-0');
+              mobileBar.classList.add('-translate-y-full');
+            }
+          } else {
+            mobileBar.classList.remove('-translate-y-full');
+            mobileBar.classList.add('translate-y-0');
+          }
+          lastY = y;
+        }
+
+        function openMenu() {
+          mobileMenu.classList.remove('hidden');
+        }
+        function closeMenu() {
+          mobileMenu.classList.add('hidden');
+        }
+        function onResize() {
+          if (window.innerWidth >= 768) {
+            closeMenu();
+          }
+          onScroll();
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+        if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        onResize();
+      })();
+    </script>
   </body>
-</html>
+  </html>
