@@ -2,14 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="https://justkorea.co.kr/data/skin/front/just_responsive_1910/css/reset.css?ts=1695649031"> -->
+    <link rel="stylesheet" href="https://justkorea.co.kr/data/skin/front/just_responsive_1910/css/reset.css?ts=1695649031">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>JUST KOREA (Static)</title>
     <style>
-      body, main, header {
+      body, header {
         font-family: "Pretendard";
       }
       li.hover-event {
@@ -38,48 +35,338 @@
       #mobile-menu {
         z-index: 1000001;
       }
-      #site-header {
+      #header {
         z-index: 1000;
       }
-      .bg-navy { background-color: #0b357a; }
       .text-gold { color: #D2AC53; }
-      /* 로고 SVG가 크기 미지정일 때 보이지 않는 문제 방지 */
-      #mobile-bar > div:first-child a svg { width: 100%; height: auto; display: block; }
-      #pc-navbar .w-32 a svg { width: 100%; height: auto; display: block; }
+      .hidden { display: none; }
+      .translate-y-0 { transform: translateY(0); }
+      .-translate-y-full { transform: translateY(-100%); }
+      .site-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #ffffff;
+      }
+      .mobile-bar {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #ffffff;
+        width: 100%;
+        transition: transform 0.3s;
+        transform: translateY(0);
+      }
+      .logo {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        width: 5rem;
+      }
+      .menu-btn-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+      }
+      .icon-button {
+        padding: 0.5rem;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+      .pc-navbar {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin: 0 auto;
+        padding: 2rem;
+        max-width: 1200px;
+      }
+      .pc-nav-list {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        width: 40%;
+      }
+      .pc-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 8rem;
+      }
+      .pc-logo-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-color: #ffffff;
+        padding: 4px;
+        border-radius: 4px;
+      }
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #0b357a;
+        color: #ffffff;
+      }
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2.5rem 2.5rem 0;
+      }
+      .mobile-menu-title {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      .mobile-menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 5rem 2.5rem 0;
+        padding: 0;
+        list-style: none;
+      }
+      .mobile-menu-link {
+        display: block;
+        padding: 0.5rem 0;
+        text-decoration: none;
+      }
+      .mobile-menu-item {
+        display: flex;
+        font-weight: 300;
+        color: #ffffff;
+        font-size: 1.125rem;
+      }
       @media (width >= 768px) {
-        ul > a:nth-child(1),
-        ul > a:nth-child(2) {
+        .pc-nav-list > a:nth-child(1),
+        .pc-nav-list > a:nth-child(2) {
           border-right: 1px solid #ccc;
         }
-        li {
+        .pc-nav-list li {
           display: flex;
           flex: 1 1 auto;
           align-items: center;
           justify-content: center;
         }
-        ul > a { flex: 1 1 auto; }
-        ul {
-          display: flex;
-          justify-content: space-around;
+        .pc-nav-list > a { flex: 1 1 auto; }
+      }
+      @media (min-width: 768px) {
+        .mobile-only { display: none; }
+        .desktop-only { display: flex; }
+      }
+      @media (max-width: 767px) {
+        .mobile-only { display: flex; }
+        .desktop-only { display: none; }
+      }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .footer {
+        width: 100%;
+        background-color: #00509e;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: auto;
+        padding: 3rem 0;
+      }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-section {
+        margin-bottom: 1rem;
+      }
+      .footer-section h3 {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+      .footer-section p {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0.5rem;
+      }
+      .footer-nav {
+        display: flex;
+        flex-direction: column;
+      }
+      .footer-nav a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        transition: color 0.2s;
+      }
+      .footer-nav a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .social-icon {
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.2s;
+      }
+      .social-links a:hover .social-icon {
+        color: #ffffff;
+      }
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-bottom p {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+      }
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
           align-items: center;
-          height: 100%;
+        }
+        .footer-links {
+          margin-top: 0;
+        }
+      }
+      @media (min-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .accordion-checkbox {
+        display: none;
+      }
+      .accordion-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        color: inherit;
+        margin-bottom: 1rem;
+      }
+      .accordion-header h3 {
+        margin: 0;
+      }
+      .accordion-icon {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+      }
+      .accordion-icon::before,
+      .accordion-icon::after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        transition: transform 0.3s ease;
+      }
+      .accordion-icon::before {
+        width: 2px;
+        height: 12px;
+        top: 4px;
+        left: 9px;
+      }
+      .accordion-icon::after {
+        width: 12px;
+        height: 2px;
+        top: 9px;
+        left: 4px;
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-checkbox:checked + .accordion-header .accordion-icon::before {
+        transform: rotate(90deg);
+      }
+      .accordion-checkbox:checked ~ .accordion-content {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+      }
+      @media (max-width: 767px) {
+        .accordion-header {
+          padding: 0.5rem 0;
+        }
+        .footer-section.accordion {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-section.accordion:last-child {
+          border-bottom: none;
+        }
+      }
+      @media (min-width: 768px) {
+        .accordion-header {
+          pointer-events: none;
+        }
+        .accordion-icon {
+          display: none;
+        }
+        .accordion-content {
+          max-height: none;
         }
       }
     </style>
   </head>
   <body>
-    <header id="site-header" class="top-0 absolute bg-white w-full">
+    <header id="header" class="site-header">
       <section
         id="mobile-bar"
-        class="md:hidden fixed flex flex-row justify-between bg-white w-full transition-transform translate-y-0 duration-300 transform"
+        class="mobile-bar mobile-only translate-y-0"
       >
-        <div class="m-2 p-2 w-20">
-          <a href="/#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.98 91.12"><defs><style>.cls-1{fill:#e60012;}.cls-2{fill:#fff;}.cls-3,.cls-4{fill:#004ea2;}.cls-4{fill-rule:evenodd;}</style></defs><title>자산 1</title><g id="레이어_2" data-name="레이어 2"><g id="레이어_1-2" data-name="레이어 1"><polygon class="cls-1" points="123.12 22.64 108.43 22.64 111.28 7.95 125.98 7.95 123.12 22.64 123.12 22.64"/><polygon class="cls-2" points="122.67 13.64 119.47 13.64 120.17 10.04 116.78 10.04 116.08 13.64 112.67 13.64 112.01 17.05 115.41 17.05 114.67 20.84 118.07 20.84 118.81 17.05 122 17.05 122.67 13.64 122.67 13.64"/><path class="cls-3" d="M24.28,59.78c-.16.6-.34,1.18-.53,1.76C34.07,66,47,68.7,61.07,68.7a98.25,98.25,0,0,0,32.12-5.14A125.36,125.36,0,0,1,66.35,66.7c-16,.2-30.74-2.42-42.07-6.92M1.61,36.73C1.4,19.73,30,5.6,65.58,5.15,81.52,5,96.14,7.55,107.44,12,96.24,4.65,79.62,0,61.07,0,27.34,0,0,15.38,0,34.35,0,42.6,5.17,50.17,13.79,56.09l.31-1.44c-7.77-5-12.4-11.17-12.49-17.92"/><path class="cls-3" d="M32.44,16.26H23.58l-8.71,43.3C13.94,64,10.75,70.11,5.6,70.4L6.52,73c6,0,9.88-2.08,12.47-5.67a26.63,26.63,0,0,0,4.07-9.84l9.38-41.18Z"/><path class="cls-3" d="M55.23,54.05H47.64l.7-3c-3,2-6.44,3.6-10,3.6-6.26,0-6.2-6.44-5.27-10.9l3.42-16.46L44.34,26,40.8,42.86C40.28,45.3,39.7,50,43.41,50a9.25,9.25,0,0,0,5.51-2.2l4.29-20.52L61.09,26,55.23,54.05Z"/><path class="cls-3" d="M77.83,29.13c-2.37-.06-5.39,1.44-5.39,4.17,0,3.48,10.72,4.23,10.72,11,0,7.13-7.47,10.44-13.62,10.44A22.39,22.39,0,0,1,62,53.18L61.78,50a16.35,16.35,0,0,0,7.36,1.74c2.78,0,6.55-1.57,6.55-4.81C75.75,42.23,65,42.05,65,35.79s7.13-9.56,12.69-9.56a13.84,13.84,0,0,1,6.08,1.51l.18,3.18a13.33,13.33,0,0,0-6.09-1.79"/><path class="cls-3" d="M106.81,29.24h-6.67L96.78,45.18c-.69,3.19-1,5.39,3.31,5.39a20.43,20.43,0,0,0,3.3-.29l-1.45,3.19a41.24,41.24,0,0,1-8.46,1.16c-5,0-5.62-3-4.75-7.07l3.82-18.32H89.08l.52-2.49H93l1.39-6.43L102.23,19l-1.56,7.71h6.6l-.46,2.49Z"/><path class="cls-3" d="M9.26,85.43a2.45,2.45,0,1,0,0,4.9,2.45,2.45,0,1,0,0-4.9m0-.8a3.25,3.25,0,1,1,0,6.49,3.25,3.25,0,1,1,0-6.49"/><path class="cls-3" d="M17.65,87.55c.9,0,1.11-.55,1.11-1,0-.59-.35-1-1.09-1H15.08v2Zm-3.49-2.77H18a1.56,1.56,0,0,1,1.69,1.65,1.47,1.47,0,0,1-1,1.52v0c.55.08.87.59.9,1.32.05,1.15.09,1.44.3,1.68h-1c-.15-.17-.15-.43-.19-1.18-.06-1.11-.44-1.45-1.2-1.45h-2.4V91h-.92V84.78Z"/><polygon class="cls-4" points="22.13 84.78 21.21 84.78 21.21 90.97 22.13 90.97 22.13 84.78 22.13 84.78"/><path class="cls-3" d="M27.37,87.63h2.84V91h-.66l-.16-.88a2.86,2.86,0,0,1-2.37,1A3,3,0,0,1,23.75,88,3.09,3.09,0,0,1,27,84.63c1.28,0,2.72.4,3.11,2.1h-1A1.91,1.91,0,0,0,27,85.43a2.26,2.26,0,0,0-2.37,2.47,2.21,2.21,0,0,0,2.41,2.43,2.12,2.12,0,0,0,2.31-1.9h-2v-.8Z"/><polygon class="cls-4" points="32.95 84.78 32.03 84.78 32.03 90.97 32.95 90.97 32.95 84.78 32.95 84.78"/><polygon class="cls-3" points="35.76 86.05 35.74 86.05 35.74 90.97 34.83 90.97 34.83 84.78 35.89 84.78 39.87 89.7 39.88 89.7 39.88 84.78 40.8 84.78 40.8 90.97 39.74 90.97 35.76 86.05 35.76 86.05"/><path class="cls-3" d="M45.19,85.63,44,88.37h2.34l-1.18-2.74Zm1.52,3.54h-3L42.89,91h-1l2.8-6.19h1L48.55,91h-1l-.79-1.8Z"/><polygon class="cls-3" points="49.65 84.78 50.57 84.78 50.57 90.17 54.33 90.17 54.33 90.97 49.65 90.97 49.65 84.78 49.65 84.78"/></svg>
+        <div class="logo">
+          <a href="/#"><img src="https://i.ibb.co/5W6mQWRf/JUST-LOGO-BLUE-300x300.jpg" alt="JUST LOGO BLUE 300x300" border="0" class="pc-logo-img"></a>
           </a>
         </div>
-        <div class="flex justify-center items-center w-20">
-          <button id="mobile-menu-toggle" aria-label="모바일 메뉴 열기" class="p-2">
+        <div class="menu-btn-wrap">
+          <button id="mobile-menu-toggle" aria-label="모바일 메뉴 열기" class="icon-button">
             <svg
               width="28"
               height="18"
@@ -102,18 +389,16 @@
         </div>
       </section>
 
-      <nav id="pc-navbar" class="hidden md:flex justify-center items-center gap-4 mx-auto p-8 max-w-screen-xl">
-        <ul class="relative flex justify-evenly items-end w-[40%]">
+      <nav id="pc-navbar" class="pc-navbar desktop-only">
+        <ul class="pc-nav-list">
           <a href="/brand"><li class="hover-event">브랜드</li></a>
-          <a href="/philosophy"><li class="hover-event">제품 철학</li></a>
+          <a href="/philosophy"><li class="hover-event">주요 활동</li></a>
           <a href="/store"><li class="hover-event">스토어</li></a>
         </ul>
-        <div class="flex justify-center items-center w-32">
-          <a href="/#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.98 91.12"><defs><style>.cls-1{fill:#e60012;}.cls-2{fill:#fff;}.cls-3,.cls-4{fill:#004ea2;}.cls-4{fill-rule:evenodd;}</style></defs><title>자산 1</title><g id="레이어_2" data-name="레이어 2"><g id="레이어_1-2" data-name="레이어 1"><polygon class="cls-1" points="123.12 22.64 108.43 22.64 111.28 7.95 125.98 7.95 123.12 22.64 123.12 22.64"/><polygon class="cls-2" points="122.67 13.64 119.47 13.64 120.17 10.04 116.78 10.04 116.08 13.64 112.67 13.64 112.01 17.05 115.41 17.05 114.67 20.84 118.07 20.84 118.81 17.05 122 17.05 122.67 13.64 122.67 13.64"/><path class="cls-3" d="M24.28,59.78c-.16.6-.34,1.18-.53,1.76C34.07,66,47,68.7,61.07,68.7a98.25,98.25,0,0,0,32.12-5.14A125.36,125.36,0,0,1,66.35,66.7c-16,.2-30.74-2.42-42.07-6.92M1.61,36.73C1.4,19.73,30,5.6,65.58,5.15,81.52,5,96.14,7.55,107.44,12,96.24,4.65,79.62,0,61.07,0,27.34,0,0,15.38,0,34.35,0,42.6,5.17,50.17,13.79,56.09l.31-1.44c-7.77-5-12.4-11.17-12.49-17.92"/><path class="cls-3" d="M32.44,16.26H23.58l-8.71,43.3C13.94,64,10.75,70.11,5.6,70.4L6.52,73c6,0,9.88-2.08,12.47-5.67a26.63,26.63,0,0,0,4.07-9.84l9.38-41.18Z"/><path class="cls-3" d="M55.23,54.05H47.64l.7-3c-3,2-6.44,3.6-10,3.6-6.26,0-6.2-6.44-5.27-10.9l3.42-16.46L44.34,26,40.8,42.86C40.28,45.3,39.7,50,43.41,50a9.25,9.25,0,0,0,5.51-2.2l4.29-20.52L61.09,26,55.23,54.05Z"/><path class="cls-3" d="M77.83,29.13c-2.37-.06-5.39,1.44-5.39,4.17,0,3.48,10.72,4.23,10.72,11,0,7.13-7.47,10.44-13.62,10.44A22.39,22.39,0,0,1,62,53.18L61.78,50a16.35,16.35,0,0,0,7.36,1.74c2.78,0,6.55-1.57,6.55-4.81C75.75,42.23,65,42.05,65,35.79s7.13-9.56,12.69-9.56a13.84,13.84,0,0,1,6.08,1.51l.18,3.18a13.33,13.33,0,0,0-6.09-1.79"/><path class="cls-3" d="M106.81,29.24h-6.67L96.78,45.18c-.69,3.19-1,5.39,3.31,5.39a20.43,20.43,0,0,0,3.3-.29l-1.45,3.19a41.24,41.24,0,0,1-8.46,1.16c-5,0-5.62-3-4.75-7.07l3.82-18.32H89.08l.52-2.49H93l1.39-6.43L102.23,19l-1.56,7.71h6.6l-.46,2.49Z"/><path class="cls-3" d="M9.26,85.43a2.45,2.45,0,1,0,0,4.9,2.45,2.45,0,1,0,0-4.9m0-.8a3.25,3.25,0,1,1,0,6.49,3.25,3.25,0,1,1,0-6.49"/><path class="cls-3" d="M17.65,87.55c.9,0,1.11-.55,1.11-1,0-.59-.35-1-1.09-1H15.08v2Zm-3.49-2.77H18a1.56,1.56,0,0,1,1.69,1.65,1.47,1.47,0,0,1-1,1.52v0c.55.08.87.59.9,1.32.05,1.15.09,1.44.3,1.68h-1c-.15-.17-.15-.43-.19-1.18-.06-1.11-.44-1.45-1.2-1.45h-2.4V91h-.92V84.78Z"/><polygon class="cls-4" points="22.13 84.78 21.21 84.78 21.21 90.97 22.13 90.97 22.13 84.78 22.13 84.78"/><path class="cls-3" d="M27.37,87.63h2.84V91h-.66l-.16-.88a2.86,2.86,0,0,1-2.37,1A3,3,0,0,1,23.75,88,3.09,3.09,0,0,1,27,84.63c1.28,0,2.72.4,3.11,2.1h-1A1.91,1.91,0,0,0,27,85.43a2.26,2.26,0,0,0-2.37,2.47,2.21,2.21,0,0,0,2.41,2.43,2.12,2.12,0,0,0,2.31-1.9h-2v-.8Z"/><polygon class="cls-4" points="32.95 84.78 32.03 84.78 32.03 90.97 32.95 90.97 32.95 84.78 32.95 84.78"/><polygon class="cls-3" points="35.76 86.05 35.74 86.05 35.74 90.97 34.83 90.97 34.83 84.78 35.89 84.78 39.87 89.7 39.88 89.7 39.88 84.78 40.8 84.78 40.8 90.97 39.74 90.97 35.76 86.05 35.76 86.05"/></svg>
-          </a>
+        <div class="pc-logo">
+          <a href="/#"><img src="https://i.ibb.co/5W6mQWRf/JUST-LOGO-BLUE-300x300.jpg" alt="JUST LOGO BLUE 300x300" border="0" class="pc-logo-img"></a>
         </div>
-        <ul class="relative flex justify-evenly items-end w-[40%]">
+        <ul class="pc-nav-list">
           <a href="/spa"><li class="hover-event">스파</li></a>
           <a href="https://www.justkorea.co.kr/"><li class="hover-event">제품 찾기</li></a>
           <a href="/herb"><li class="hover-event">허브 백과사전</li></a>
@@ -123,11 +408,11 @@
 
     <div
       id="mobile-menu"
-      class="hidden top-0 left-0 fixed bg-navy w-full h-screen text-white"
+      class="mobile-menu hidden"
     >
-      <div class="flex justify-between items-center mx-10 mt-10">
-        <h1 class="text-xl"><span class="text-gold">JUST</span> KOREA</h1>
-        <button id="mobile-menu-close" aria-label="모바일 메뉴 닫기" class="p-2">
+      <div class="mobile-menu-header">
+        <h1 class="mobile-menu-title"><span class="text-gold">JUST</span> KOREA</h1>
+        <button id="mobile-menu-close" aria-label="모바일 메뉴 닫기" class="icon-button">
           <svg
             width="25"
             height="25"
@@ -143,22 +428,103 @@
           </svg>
         </button>
       </div>
-      <ul class="flex flex-col gap-2 mx-10 mt-20">
-        <a class="block py-2" href="/brand"><li class="flex font-light text-white text-lg">브랜드</li></a>
-        <a class="block py-2" href="/philosophy"><li class="flex font-light text-white text-lg">제품 철학</li></a>
-        <a class="block py-2" href="/store"><li class="flex font-light text-white text-lg">스토어</li></a>
+      <ul class="mobile-menu-list">
+        <a class="mobile-menu-link" href="/brand"><li class="mobile-menu-item">브랜드</li></a>
+        <a class="mobile-menu-link" href="/philosophy"><li class="mobile-menu-item">주요 활동</li></a>
+        <a class="mobile-menu-link" href="/store"><li class="mobile-menu-item">스토어</li></a>
         
-        <a class="block py-2" href="https://justkorea.co.kr"><li class="flex font-light text-white text-lg">제품 찾기</li></a>
-        <a class="block py-2" href="/herb"><li class="flex font-light text-white text-lg">허브 백과사전</li></a>
-        <a class="block py-2" href="/spa"><li class="flex font-light text-white text-lg">스파</li></a>
+        <a class="mobile-menu-link" href="https://justkorea.co.kr"><li class="mobile-menu-item">제품 찾기</li></a>
+        <a class="mobile-menu-link" href="/herb"><li class="mobile-menu-item">허브 백과사전</li></a>
+        <a class="mobile-menu-link" href="/spa"><li class="mobile-menu-item">스파</li></a>
       </ul>
     </div>
 
-    <main class="pt-20 md:pt-40 h-[2000px]">
-      <div class="mx-auto p-6 max-w-screen-xl text-gray-700">
-        <p>정적 HTML/JS/CSS로 변환된 헤더입니다.</p>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>(주) 유스트코리아</h3>
+            <p>스위스 90년 전통 허브 테라피 <br /> SWISS PURE BEAUTY</p>
+            <p style="font-size: 0.75rem;">
+              대표자명 : 임순채 <br /> 사업자번호 : 261-81-02131
+            </p>
+          </div>
+
+          <div class="footer-section accordion">
+            <input type="checkbox" id="links-accordion" class="accordion-checkbox" />
+            <label for="links-accordion" class="accordion-header">
+              <h3>링크</h3>
+              <span class="accordion-icon"></span>
+            </label>
+            <div class="accordion-content">
+              <nav class="footer-nav">
+                <a href="/">홈</a>
+                <a href="/brand">브랜드</a>
+                <a href="/store">스토어</a>
+                <a href="/spa">스파</a>
+                <a href="https://justkorea.co.kr" target="_blank">제품 찾기</a>
+                <a href="/herb">허브 백과사전</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="footer-section accordion">
+            <input type="checkbox" id="support-accordion" class="accordion-checkbox" />
+            <label for="support-accordion" class="accordion-header">
+              <h3>고객 지원</h3>
+              <span class="accordion-icon"></span>
+            </label>
+            <div class="accordion-content">
+              <nav class="footer-nav">
+                <a href="/faq">자주 묻는 질문</a>
+                <a href="https://happytalk.io/l/quU0Cb" target="_blank">문의하기</a>
+                <a href="/terms">이용약관</a>
+                <a href="/privacy">개인정보처리방침</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>연락처</h3>
+            <p>경기도 성남시 분당구 백현로 26 힐튼 레지던스 2층 유스트</p>
+            <p>이메일: hq@justkorea.co.kr</p>
+            <p>전화: 02-3482-4056</p>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/justkorea_official/"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="social-icon"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; <span id="current-year"></span> 유스트코리아. All rights reserved</p>
+          <div class="footer-links">
+            <a href="/terms">이용약관</a>
+            <a href="/privacy">개인정보처리방침</a>
+          </div>
+        </div>
       </div>
-    </main>
+    </footer>
 
     <script>
       (function () {
@@ -204,6 +570,11 @@
         if (toggleBtn) toggleBtn.addEventListener('click', openMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
         onResize();
+      })();
+
+      (function () {
+        var yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
       })();
     </script>
   </body>

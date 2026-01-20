@@ -1,0 +1,73 @@
+<script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/ho-a-ki/public-ui-html@main/oopy-header/dist/assets/index.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ho-a-ki/public-ui-html@main/oopy-header/dist/assets/index.css">
+<header id="header"></header>
+
+<style>
+  body{min-height:100vh;margin:0;display:flex;flex-direction:column;}.footer{width:100%;background-color:#00509e;border-top:1px solid rgba(255,255,255,0.1);margin-top:auto;padding:3rem 0;}.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;}h1{font-size:2rem;font-weight:bold;margin-bottom:1rem;}.main-content .container{padding:3rem 1rem;}.footer-grid{display:grid;grid-template-columns:1fr;gap:2rem;}.footer-section{margin-bottom:1rem;}.footer-section h3{margin:0;font-size:1.125rem;font-weight:bold;margin-bottom:1rem;color:#ffffff;}.footer-section p{font-size:0.875rem;color:rgba(255,255,255,0.8);margin-bottom:0.5rem;}.footer-nav{display:flex;flex-direction:column;}.footer-nav a{font-size:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;}.footer-nav a:hover{text-decoration:underline;color:#ffffff;}.social-links{display:flex;gap:1rem;margin-top:1rem;}.social-icon{color:rgba(255,255,255,0.8);transition:color 0.2s;}.social-links a:hover .social-icon{color:#ffffff;}.footer-bottom{display:flex;flex-direction:column;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);}.footer-bottom p{font-size:0.875rem;color:rgba(255,255,255,0.8);}.footer-links{display:flex;gap:1rem;margin-top:1rem;}.footer-links a{font-size:0.875rem;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s;}.footer-links a:hover{text-decoration:underline;color:#ffffff;}@media(min-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr);}.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center;}.footer-links{margin-top:0;}}@media(min-width:1024px){.footer-grid{grid-template-columns:repeat(4,1fr);}}.accordion-checkbox{display:none;}.accordion-header{width:100%;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:inherit;margin-bottom:1rem;}.accordion-header h3{margin:0;}.accordion-icon{position:relative;width:20px;height:20px;transition:transform 0.3s ease;}.accordion-icon::before,.accordion-icon::after{content:'';position:absolute;background-color:#fff;transition:transform 0.3s ease;}.accordion-icon::before{width:2px;height:12px;top:4px;left:9px;}.accordion-icon::after{width:12px;height:2px;top:9px;left:4px;}.accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out;}.accordion-checkbox:checked+.accordion-header .accordion-icon::before{transform:rotate(90deg);}.accordion-checkbox:checked~.accordion-content{max-height:500px;transition:max-height 0.5s ease-in;}@media(max-width:767px){.accordion-header{padding:0.5rem 0;}.footer-section.accordion{border-bottom:1px solid rgba(255,255,255,0.1);}.footer-section.accordion:last-child{border-bottom:none;}}@media(min-width:768px){.accordion-header{pointer-events:none;}.accordion-icon{display:none;}.accordion-content{max-height:none;}}
+</style>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>(주) 유스트코리아</h3>
+          <p>스위스 90년 전통 허브 테라피 <br> SWISS PURE BEAUTY</p>
+          <p style="font-size: 0.75rem;">대표자명 : 임순채 <br> 사업자번호 : 261-81-02131</p>
+        </div>
+        
+        <div class="footer-section accordion">
+          <input type="checkbox" id="links-accordion" class="accordion-checkbox">
+          <label for="links-accordion" class="accordion-header">
+            <h3>링크</h3>
+            <span class="accordion-icon"></span>
+          </label>
+          <div class="accordion-content">
+            <nav class="footer-nav">
+              <a href="/">홈</a>
+              <a href="/brand">브랜드</a>
+              <a href="/store">스토어</a>
+              <a href="/spa">스파</a>
+              <a href="https://justkorea.co.kr" target="_blank">제품 찾기</a>
+              <a href="/herb">허브 백과사전</a>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="footer-section accordion">
+          <input type="checkbox" id="support-accordion" class="accordion-checkbox">
+          <label for="support-accordion" class="accordion-header">
+            <h3>고객 지원</h3>
+            <span class="accordion-icon"></span>
+          </label>
+          <div class="accordion-content">
+            <nav class="footer-nav">
+              <a href="/faq">자주 묻는 질문</a>
+              <a href="https://happytalk.io/l/quU0Cb" target="_blank">문의하기</a>
+              <a href="/terms">이용약관</a>
+              <a href="/privacy">개인정보처리방침</a>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>연락처</h3>
+          <p>경기도 성남시 분당구 백현로 26 힐튼 레지던스 2층 유스트</p>
+          <p>이메일: hq@justkorea.co.kr</p>
+          <p>전화: 02-3482-4056</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/justkorea_official/" target="_blank" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> 유스트코리아. All rights reserved</p>
+        <div class="footer-links">
+          <a href="/terms">이용약관</a>
+          <a href="/privacy">개인정보처리방침</a>
+        </div>
+      </div>
+    </div>
+  </footer>
